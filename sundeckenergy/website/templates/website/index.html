@@ -1,0 +1,102 @@
+{% extends 'website/base.html' %}
+{%block title%}SundeckEnergy{%endblock%}
+{%block home_active%} active {%endblock%}
+{%block body%}
+{%load staticfiles%}
+
+
+<div class="Main-agile">
+  <!-- banner -->
+  <div class="sub-agile">
+
+    <div class="col-md-12 logo">
+      <h1><a href="{% url 'website:home_view' %}"><img src="{% static 'website/images/sundeck_logo.png' %}" width="200px;" height="75px;"><span> PV Technology</span></a></h1>
+    </div>
+
+    <div class="clearfix"> </div>
+  </div>
+  <!-- banner-text -->
+  <div class="slider">
+    <div class="callbacks_container">
+      <ul class="rslides callbacks callbacks1" id="slider4">
+        <li>
+          <div class="w3layouts-banner-top banner">
+            <div class="container">
+              <div class="agileits-banner-info">
+                <h3>SAVING <span>ENERGY</span></h3>
+                <p>SAVING THE PLANET</p>
+                <h5><a href="#" class="view rew3" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Learn More</a></h5>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="w3layouts-banner-top banner-2">
+            <div class="container">
+              <div class="agileits-banner-info">
+                <h3>Solar Energy <span>System</span></h3>
+                <p>save 40% On a home</p>
+                <h5><a href="#" class="view rew3" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Learn More</a></h5>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="w3layouts-banner-top banner-3">
+            <div class="container">
+              <div class="agileits-banner-info">
+                <h3>THE <span>POWER</span></h3>
+                <p>OF SUN AT YOUR HOME</p>
+                <h5><a href="#" class="view rew3" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Learn More</a></h5>
+
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="clearfix"> </div>
+    <!-- //banner-text -->
+  </div>
+
+  <div class="header">
+    <div class="col-md-6 w3l_header_left">
+      <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="mailto:sundeckpv.info@gmail.com">sundeckpv.info@gmail.com</a></p>
+    </div>
+    <div class="col-md-6 w3l_header_right">
+      <div class="navbar-right social-icons">
+        <ul>
+          <li><a href="https://www.facebook.com/pg/Sundeck-PV-Technology-1143472735757294" class="fa fa-facebook icon-border facebook"> </a></li>
+          <!--	<li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li> -->
+          <li><a href="https://plus.google.com/u/0/116680952174661961388" class="fa fa-google-plus icon-border googleplus"> </a></li>
+          <!-- <li><a href="#" class="fa fa-rss icon-border rss"> </a></li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+</div>
+
+<!-- Modal5 -->
+<div class="modal fade" id="myModal5" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4>Solar Power </h4>
+        <h5>Future of Energy Sector</h5>
+        <img src="{% static 'website/images/img2.jpg' %}" alt="blog-image" />
+        <span>We all know the imporatnace of energy in our day-to-day life. Everything we do, almost everything we need, is somehow or the other related to energy and electricity. In this modern era of technology, we end being so much dependent on energy resources that we don't realize how the future would be. There have been a lot of researches, giving rise to renewable energy sources, but there has been a lack of proper implementation. Many of the research studies say that renewable enrgy sources like Solar Power is the future. Currently, there are many efforts being put in to build an infrastructure, which can shift are dependance from the non-renewable to renewable energy sources. And here we are making some efforts to proceed in that direction, with a small step but an effective one for sure.</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //Modal5 -->
+{% if success_status == "success" %}
+  <script>
+    alert('{{contact_name}} Thank You for contacting us! We will get back to you soon!')
+  </script>
+{% endif %}
+
+{%endblock%}

@@ -1,0 +1,17 @@
+# [START runtime]
+runtime: python27
+entrypoint: gunicorn -b :$PORT mysite.wsgi
+threadsafe: true
+# [END runtime]
+
+handlers:
+- url: /static
+  static_dir: website/static
+    
+- url: /.*
+  script: main.application
+    
+libraries:
+
+- name: django
+  version: 1.11

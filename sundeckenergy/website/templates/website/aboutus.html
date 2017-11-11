@@ -1,0 +1,97 @@
+{% extends 'website/base.html' %}
+
+{%block title%}  About Us | SundeckEnergy{%endblock%}
+{%block about_active%} active {%endblock%}
+{%block body%}
+{%load staticfiles%}
+
+<!-- about -->
+<div class="about-w3l" id="about">
+  <div class="container">
+    <div class="about-main-w3l">
+      <div class="about-top-w3l">
+        <h3>About Us</h3>
+        <span>A FEW WORDS ABOUT US</span>
+        <p>We are A Renewable Energy Team working to promote Sustainable and Clean technology to create green communities.</p>
+      </div>
+      <div class="about-bottom-w3l">
+        <div class="col-md-4 about-grid">
+          <div class="about-grid-main">
+            <img src="{% static 'website/images/a1.png' %}" alt="">
+            <h4>ENERGY ANALYSIS</h4>
+            <p> Accurate Energy Requirements gathering are the key for providing good solutions.</p>
+          </div>
+        </div>
+        <div class="col-md-4 about-grid">
+          <div class="about-grid-main">
+            <img src="{% static 'website/images/a2.png' %}" alt="">
+            <h4>NEW SOLUTIONS</h4>
+            <p> Our team provides new & efficient solutions based on their continuous Research & Study.</p>
+          </div>
+        </div>
+        <div class="col-md-4 about-grid">
+          <div class="about-grid-main">
+            <img src="{% static 'website/images/a3.png' %}" alt="">
+            <h4>Services</h4>
+            <p> Our timely services help to maintain the Solar implementations work longer and better. </p>
+          </div>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- about -->
+
+<!-- Middle-Section -->
+<div class="agile-w3">
+  <div class="container">
+    <div class="agileits-w3-2">
+      <div class="col-md-8 w3-nature">
+        <p>Products</p>
+      </div>
+    </div>
+    <div class="wthree_banner_info">
+      <div class="col-md-4 wthree_banner_info_left">
+        <div class="col-xs-4 wthree_banner_info_left_grid">
+          <div class="wthree_banner_info_left_grid1">
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+        </div>
+      <div class="col-xs-8 wthree_banner_info_left_grid_left">
+          <h3><a href="#" class="view rew3" data-toggle="modal" data-target="#roofModal"><span aria-hidden="true"></span>ROOFTOP INSTALLATIONS</a> </h3>
+          <p>We believe in step-by-step effective solutions</p>
+      </div>
+        <div class="clearfix"> </div>
+    </div>
+      <div class="col-md-4 wthree_banner_info_left">
+        <div class="col-xs-4 w3l_banner_info_left_grid">
+          <div class="wthree_banner_info_left_grid1">
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="col-xs-8 wthree_banner_info_left_grid_left">
+          <h3><a href="#" class="view rew3" data-toggle="modal" data-target="#slModal"><span aria-hidden="true"></span>SOLAR STREET LIGHTS</a> </h3>
+          <p>We also provide services related to street lights</p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="col-md-4 wthree_banner_info_left">
+        <div class="col-xs-4 wthree_banner_info_left_grid">
+          <div class="wthree_banner_info_left_grid1">
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="col-xs-8 wthree_banner_info_left_grid_left">
+          <h3><a href="#" class="view rew3" data-toggle="modal" data-target="#swhModal"><span aria-hidden="true"></span>SOLAR THERMAL HEATERS</a> </h3>
+          <p>One of the best applications of solar power</p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>
+<!-- //Middle-Section -->
+
+{%endblock%}

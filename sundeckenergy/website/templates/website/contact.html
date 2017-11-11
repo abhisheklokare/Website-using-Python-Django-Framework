@@ -1,0 +1,102 @@
+{% extends 'website/base.html' %}
+
+{%block title%}  Contact Us | SundeckEnergy{%endblock%}
+{%block contact_active%} active {%endblock%}
+{%block body%}
+<body onload="initialize()" onunload="GUnload()">
+<script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyArgTbhRooDwZ7iSIG-k5NBWyocS6yvDYY"></script>
+
+<script type="text/javascript" >
+var map = null;
+var geocoder = null;
+function initialize() {
+      if (GBrowserIsCompatible()) {
+        map = new GMap2(document.getElementById("map_contact"));
+        map.setCenter(new GLatLng(19.0759837, 72.87765590000004), 15);
+        map.setUIToDefault();
+        geocoder = new GClientGeocoder();
+      }
+    }
+
+    function showAddress(address) {
+      if (geocoder) {
+        geocoder.getLatLng(
+          address,
+          function(point) {
+            if (!point) {
+              alert(address + " not found");
+            } else {
+              map.setCenter(point, 15);
+              var marker = new GMarker(point, {draggable: true});
+              map.addOverlay(marker);
+              GEvent.addListener(marker, "dragend", function() {
+                marker.openInfoWindowHtml(marker.getLatLng().toUrlValue(6));
+                document.getElementById("id_longitute").value = marker.getLatLng().lng();
+                document.getElementById("id_latitude").value = marker.getLatLng().lat();
+              });
+              GEvent.addListener(marker, "click", function() {
+                marker.openInfoWindowHtml(marker.getLatLng().toUrlValue(6));
+                document.getElementById("id_longitute").value = marker.getLatLng().lng();
+                document.getElementById("id_latitude").value = marker.getLatLng().lat();
+              });
+              document.getElementById("id_longitute").value = marker.getLatLng().lng();
+              document.getElementById("id_latitude").value = marker.getLatLng().lat();
+	      GEvent.trigger(marker, "click");
+            }
+          }
+        );
+      }
+    }
+
+</script>
+<!-- //Contact -->
+<div class="contact" id="contact">
+		<div class="container">
+			<h3 class="tittle">Contact Us</h3>
+			<span>Get In Touch</span>
+
+			<div class="contact-grid1">
+
+				<div class="contact-top1">
+					<div id="thankyou_message" style="display: none;">
+						<label>Thanks for contacting us! We will get back to you soon!</label>
+					</div>
+					<form action="" method="post">
+						{% csrf_token %}
+					 	{% for field in form %}
+							{% if field.label != "Latitude*" and field.label != "Longitude*" and field.label != "Address*" %}
+								<div class="form-group">
+									<label>{{field.label}}</label>
+									{{field}}
+								</div>
+							{% endif %}
+						{% endfor %}
+
+            <label>Address*</label>
+            <input type="text" name="address" required="" id="id_address" maxlength="300" placeholder="Address" onchange="showAddress(address.value);">
+						<div id="map_contact" class="container-fluid"></div>
+						<div class="lati" id="lat-long">
+							<table class="container-fluid" id="table_lati">
+								<thead>
+									<tr>
+										<td class="lati">
+											<strong>Latitude*</strong> &nbsp;<input type="number" name="latitude" step="any" id="id_latitude" style="color: #000000">
+										</td>
+                    <td class="lati">
+											<strong>Longitude*</strong> &nbsp;<input type="number" step="any" name="longitude" id="id_longitute" style="color: #000000">
+										</td>
+									</tr>
+								</thead>
+							</table>
+						</div>
+
+						<input type="submit" id="send" value="Send">
+
+					</form>
+				</div>
+			</div>
+		</div>
+
+</div>
+</body>
+{%endblock%}

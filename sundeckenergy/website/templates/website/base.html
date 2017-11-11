@@ -1,0 +1,293 @@
+<html>
+<head>
+  <title> {%block title%}  {%endblock%} </title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!--Loading Static Files-->
+  {%load staticfiles%}
+
+  <!-- Meta tag Keywords -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  	<meta name="keywords" content="Solar Power, PV , Photovoltaic , Solar Awareness, Indian Government policies for Solar, Rooftop Solar implementation, Off Grid , In Grid"
+  	/>
+  	<script type="application/x-javascript">
+  		addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+  function hideURLbar(){ window.scrollTo(0,1); }
+	</script>
+	<!--// Meta tag Keywords -->
+	<!-- CSS for loading map -->
+	<style>
+    body {
+        background-color: #fafafa;
+        font-family: Arial, Helvetica, sans-serif;
+        margin : 300px;
+    }
+    div#map {
+  	align-self: center;
+        height: 400px;
+        width: 600px;
+    }
+	</style>
+	<!-- CSS for loading map -->
+
+	<!-- Scripts for loading map-->
+	<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArgTbhRooDwZ7iSIG-k5NBWyocS6yvDYY&libraries=places"></script>
+	<script src="{% static 'website/js/map.js' %}"></script>
+	<!-- Scripts for loading map-->
+
+	<!-- Script for sending email -->
+	<script src="{% static 'website/js/smtp.js' %}"></script>
+	<script src="{% static 'website/js/sendEmail.js' %}"></script>
+	<!-- Script for sending email -->
+
+
+	<link rel="stylesheet" href="{% static 'website/css/style.css' %}" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="{% static 'website/css/font-awesome.css' %}">
+	<!-- Font-Awesome-Icons-CSS -->
+	<link href="{% static 'website/css/nav.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- For-Navigation-CSS -->
+	<link rel="stylesheet" href="{% static 'website/css/smoothbox.css' %}" type='text/css'>
+	<!-- For-Gallery-CSS -->
+  <!-- online-fonts -->
+	<link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=latin-ext,vietnamese"
+	 rel="stylesheet">
+	<!-- //online-fonts -->
+  <!--My StyleSheet-->
+  <link rel="stylesheet" type="text/css" href="{% static 'website/css/mystylesheet.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <!--Top Nav Bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!--Header-->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand brand-name" href="{% url 'website:home_view' %}">
+              <img src="{% static 'website/images/sundeck_logo.png' %}" width="100" height="30"/>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="topNavBar">
+          <ul class="nav navbar-nav">
+           <li class="{%block home_active%}  {%endblock%}"><a href="{% url 'website:home_view' %}"><span class="glyphicon glyphicon-home"></span>&nbsp; HOME</a></li>
+           <li class="{%block about_active%}  {%endblock%}"><a href="{% url 'website:about_view' %}"><span class="glyphicon glyphicon-briefcase"></span>&nbsp; ABOUT US</a></li>
+           <li class="{%block gallery_active%}  {%endblock%}"><a href="{% url 'website:gallery_view' %}"><span class="glyphicon glyphicon-camera"></span>&nbsp; GALLERY</a></li>
+           <li class="{%block contact_active%}  {%endblock%}"><a href="{% url 'website:contact_view' %}"><span class="glyphicon glyphicon-envelope"></span>&nbsp; CONTACT US</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="{% url 'website:contact_view' %}">
+                  <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>&nbsp; +91 7506087770
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!--Top Navbar -->
+
+<!-- Actual Body -->
+<div class="container-fluid" style="padding :0px; margin : 0px;">
+  {%block body%}
+  {%endblock%}
+</div>
+<!-- Actual Body -->
+<!--Footer -->
+<footer>
+  <div class="w3ls-footer-grids">
+			<div class="container">
+				<div class="col-md-3 w3l-footer one">
+					<h2>Solar Power</h2>
+					<p> "The world must turn to (the) sun to power our future. As the developing world lifts billions of people into prosperity,
+						our hope for a sustainable planet rests on a bold, global initiative."</p>
+					<p class="adam">- Narendra Modi, Prime Minister of India</p>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-3 w3l-footer agileinfo_footer_grid">
+					<h3>Navigation</h3>
+					<div class="nav-w3-l">
+						<ul>
+							<li><a href="{% url 'website:home_view' %}">Home</a></li>
+							<li><a href="{% url 'website:about_view' %}">About Us</a></li>
+							<!--<li><a href="#team" class="scroll" >Team</a></li>-->
+							<li><a href="{% url 'website:gallery_view' %}">Gallery</a></li>
+							<li><a href="{% url 'website:contact_view' %}">Contact Us</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 w3l-footer two">
+					<h3>Keep Connected</h3>
+					<ul>
+						<li><a class="fb" href="https://www.facebook.com/pg/Sundeck-PV-Technology-1143472735757294"><i class="fa fa-facebook"></i>Like us on Facebook</a></li>
+						<!--<li><a class="fb1" href="#"><i class="fa fa-twitter"></i>Follow us on Twitter</a></li>-->
+						<li><a class="fb2" href="https://www.facebook.com/pg/Sundeck-PV-Technology-1143472735757294"><i class="fa fa-google-plus"></i>Add us on Google Plus</a></li>
+						<!--<li><a class="fb3" href="#"><i class="fa fa-dribbble"></i>Follow us on Dribbble</a></li>-->
+						<!--<li><a class="fb4" href="#"><i class="fa fa-pinterest-p"></i>Follow us on Pinterest</a></li>-->
+					</ul>
+				</div>
+				<div class="col-md-3 w3l-footer three">
+					<h3>Address</h3>
+					<ul>
+						<li><i class="fa fa-map-marker"></i>
+							<p>Sundeck PV Technology <span>Sion,</span>Mumbai, Maharashtra. </p>
+							<div class="clearfix"></div>
+						</li>
+						<li><i class="fa fa-phone"></i>
+							<p>+91 7506087770</p>
+							<div class="clearfix"></div>
+						</li>
+						<li><i class="fa fa-envelope-o"></i><a href="mailto:sundeckpv.info@gmail.com">sundeckpv.info@gmail.com</a>
+							<div class="clearfix"></div>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="copy-right-grids">
+			<div class="container">
+				<div class="copy-left">
+					<p class="footer-gd">© 2017 Sundeck PV Technology. All Rights Reserved </p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+</footer>
+<!--End Footer -->
+<!-- js-scripts -->
+
+	<!-- js -->
+	<script type="text/javascript" src="{% static 'website/js/jquery-2.1.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'website/js/bootstrap.js' %}"></script>
+	<!-- Necessary-JavaScript-File-For-Bootstrap -->
+	<!-- //js -->
+
+	<!-- Baneer-js -->
+	<script src="{% static 'website/js/responsiveslides.min.js' %}"></script>
+	<script>
+		// You can also use "$(window).load(function() {"
+		$(function () {
+			// Slideshow 4
+			$("#slider4").responsiveSlides({
+				auto: true,
+				pager: true,
+				nav: false,
+				speed: 500,
+				namespace: "callbacks",
+				before: function () {
+					$('.events').append("<li>before event fired.</li>");
+				},
+				after: function () {
+					$('.events').append("<li>after event fired.</li>");
+				}
+			});
+
+		});
+	</script>
+	<script>
+		// You can also use "$(window).load(function() {"
+		$(function () {
+			// Slideshow 4
+			$("#slider3").responsiveSlides({
+				auto: true,
+				pager: false,
+				nav: true,
+				speed: 500,
+				namespace: "callbacks",
+				before: function () {
+					$('.events').append("<li>before event fired.</li>");
+				},
+				after: function () {
+					$('.events').append("<li>after event fired.</li>");
+				}
+			});
+
+		});
+	</script>
+
+	<!-- //Baneer-js -->
+
+	<!-- gallery -->
+	<script type="text/javascript" src="{% static 'website/js/smoothbox.jquery2.js' %}"></script>
+	<!-- //gallery -->
+
+	<!-- flexSlider -->
+	<link rel="stylesheet" href="{% static 'website/css/flexslider.css' %}" type="text/css" media="screen" property="" />
+	<script defer src="{% static 'website/js/jquery.flexslider.js' %}"></script>
+	<script type="text/javascript">
+								$(window).load(function () {
+									$('.flexslider').flexslider({
+										animation: "slide",
+										start: function (slider) {
+											$('body').removeClass('loading');
+										}
+									});
+								});
+	</script>
+	<!-- //flexSlider -->
+
+	<!-- js for navigation -->
+	<script src="{% static 'website/js/classie.js' %}"></script>
+	<script src="{% static 'website/js/nav.js' %}"></script>
+	<script src="{% static 'website/js/main.js' %}"></script>
+	<!-- //js for navigation -->
+
+
+	<!-- Stats-Number-Scroller-Animation-JavaScript -->
+	<script src="{% static 'website/js/waypoints.min.js' %}"></script>
+	<script src="{% static 'website/js/counterup.min.js' %}"></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			$('.counter').counterUp({
+				delay: 100,
+				time: 1000
+			});
+		});
+	</script>
+	<!-- //Stats-Number-Scroller-Animation-JavaScript -->
+
+
+	<!-- start-smoth-scrolling -->
+	<script type="text/javascript" src="{% static 'website/js/move-top.js' %}"></script>
+	<script type="text/javascript" src="{% static 'website/js/easing.js' %}"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+			});
+		});
+	</script>
+	<!-- start-smoth-scrolling -->
+
+	<!-- smooth scrolling-bottom-to-top -->
+	<script type="text/javascript">
+		$(document).ready(function () {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+				};
+			*/
+			$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+	</script>
+	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	<!-- //smooth scrolling-bottom-to-top -->
+
+	<!-- //js-scripts -->
+	<script data-cfasync="false" type="text/javascript"
+src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+
+</body>
+</html>
